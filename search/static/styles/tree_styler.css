@@ -1,0 +1,57 @@
+/* Centering the input and button */
+#search_input_container {
+    display: flex;
+    align-items: center;
+}
+
+#query_input {
+    flex: 1;
+    font-size: 18px;
+    padding: 10px;
+}
+
+#search {
+    font-size: 20px;
+    background-color: #0077cc;
+    color: #fff;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+#search:hover {
+    background-color: #0055a4;
+}
+
+/* Styling for the engine header */
+.engine-header {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* Styling for the engine node */
+.engine-node {
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+
+/* Styling for individual search results */
+.engine-node ul {
+  list-style: none;
+  padding: 0;
+}
+
+.engine-node li {
+  margin: 5px 0;
+}
+
+/* Styling for hyperlinks within results */
+.engine-node a {
+  color: #0077cc;
+  text-decoration: none;
+}
+
+.engine-node a:hover {
+  text-decoration: underline;
+}
+
