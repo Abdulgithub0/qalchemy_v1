@@ -50,7 +50,7 @@ $(document).ready(function () {
       // Loop through the individual search results
       for (let j = 0; j < engineResults.length; j++) {
         const result = engineResults[j];
-        const $resultNode = $('<li>').html(`<a href="${result.link}">${result.title}</a>  -  <b>${result.domain}<b> <div>${result.description}</div>`);
+        const $resultNode = $('<li>').html(`<a href="${result.link}">${result.title}</a>  -  ${result.domain} <div>${result.description}</div>`);
         $resultsList.append($resultNode);
       }
       $engineNode.append($engineHeader, $resultsList);
