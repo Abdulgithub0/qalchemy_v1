@@ -66,7 +66,7 @@ EOF
 )
 
 
-# i need to make qalchemy directory and touch access and error files 
+# create qalchemy directory into /var/log and touch access and error files into it
 
 sudo mkdir -p /var/log/qalchemy
 sudo touch /var/log/qalchemy/{access.log,error.log}
