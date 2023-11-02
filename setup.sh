@@ -23,7 +23,7 @@ server {
 	}
 
 	location /static {
-		alias /home/ubuntu/qalchemy_v1/search/static/
+		alias /home/ubuntu/qalchemy_v1/search/static/;
 	}
 
 	location /search {
@@ -45,7 +45,7 @@ if [ ! -e /etc/nginx/sites-enabled/default.copy ]; then
 	sudo cp /etc/nginx/sites-enabled/default /etc/nginx/sites-available/default.copy
 fi
 
-echo "$config" | sudo tee /etc/nginx/sites-enabled/default >dev/null
+echo "$config" | sudo tee /etc/nginx/sites-enabled/default >/dev/null
 
 
 # set up supervisor - I would have used systemd but i prefer to allocate it to supervisor since qalchemy is currently lightweighted.
@@ -56,6 +56,7 @@ config_supervisor=$(cat <<EOF
 [program:qalchemy]
 directory=/home/ubuntu/qalchemy_v1/
 command=gunicorn -w 3 search.app:qalchemy
+user=ubuntu
 autostart=true
 autorestart=true
 stopasgroup=true
@@ -73,7 +74,7 @@ sudo touch /var/log/qalchemy/{access.log,error.log}
 
 sudo touch /etc/supervisor/conf.d/qalchemy.conf 
 
-sudo echo "$config_supervisor" | sudo tee /etc/supervsior/conf.d/qalchemy.conf >dev/null
+sudo echo "$config_supervisor" | sudo tee /etc/supervsior/conf.d/qalchemy.conf >/dev/null
 
 # now restart and reload
 
