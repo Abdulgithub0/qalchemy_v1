@@ -10,12 +10,12 @@ import json
 #create flask instance and register search_views blueprint on it to manage
 qalchemy = Flask(__name__)
 
-
+"""
 @qalchemy.route("/", strict_slashes=False)
 def index():
-    """render qalchemy's frontend page -- nginx will handle this later"""
+    render qalchemy's frontend page -- nginx will handle this later
     return render_template("index.html")
-
+"""
 
 @qalchemy.route("/search", methods=["POST"], strict_slashes=False)
 def search():
