@@ -5,6 +5,7 @@ from flask import jsonify, request, abort, make_response, Flask, render_template
 from search_aggregate.bing_engine import bing
 from search_aggregate.google_engine import google
 from search_aggregate.wiki import wiki
+import json
 
 #create flask instance and register search_views blueprint on it to manage
 qalchemy = Flask(__name__)
@@ -20,7 +21,8 @@ def index():
 def search():
     """generate search result"""
     if request.method == "POST":
-        query = request.get_json().get("q")
+        request_body = json.loads(request.headers.get('X-Request-Body').replace("'", "\""))
+        query = request_body.get("q")
         if query:
             wiki_r = wiki(query)
             w = [{"title": "sorry No relevant search result from wikipedia"}]
