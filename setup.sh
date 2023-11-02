@@ -73,7 +73,7 @@ sudo touch /var/log/qalchemy/{access.log,error.log}
 
 sudo touch /etc/supervisor/conf.d/qalchemy.conf 
 
-sudo echo "$config_supervisor" | sudo tee /etc/supervsior/conf.d/qalchemy.conf
+sudo echo "$config_supervisor" | sudo tee /etc/supervsior/conf.d/qalchemy.conf >dev/null
 
 # now restart and reload
 
